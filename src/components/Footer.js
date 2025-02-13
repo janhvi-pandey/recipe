@@ -11,7 +11,7 @@ const Footer = () => {
     <div className="bg-black p-10 text-gray-100 text-sm text-center
       ">
         <p className="pb-3">Copyright 2025. All rights reserved.</p>
-        <p className="text-gray-300">Made with <span className='inline-flex items-center text-xs  justify-center '><GiLoveMystery/></span> for u </p>
+        <p className="text-gray-300">Made with &hearts; for u </p>
 
       </div>
     </>

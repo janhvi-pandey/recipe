@@ -146,6 +146,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
  {/* End section  */}
   <div className="flex items-center justify-start p-16 mt-5 mb-1  h-[655px] bg-[url('/images/image.png')] bg-cover bg-right bg-no-repeat">
         <div className="max-w-xl text-black p-6 rounded-lg">
