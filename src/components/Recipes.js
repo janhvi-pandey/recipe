@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
+  const navigate=useNavigate();
   const fetchRecipe = async () => {
     try {
       const response = await fetch("https://dummyjson.com/recipes", {
@@ -24,16 +26,19 @@ const Recipes = () => {
     fetchRecipe();
   }, []);
 
+
   return (
     <>
     <Navbar/>
       <h1 className="flex items-center justify-center text-3xl font-semibold text-amber-950 pt-30 pb-7">What to cook?<span className='text-amber-400 ml-2'>Choose your favourite Recipes</span> </h1>
       <div className="grid grid-cols-3 items-center justify-items-center m-8 gap-8  ">
         {recipes.map((recipe, index) => (
+          
           <div key={index} className=" flex flex-col border rounded-3xl w-[330px] mb-5 ">
+          
             <img className='rounded-t-3xl  w-[330px]' src={recipe.image} alt="recipe" />
             <h2 className="flex items-center p-2 justify-center font-semibold text-lg">{recipe.name}</h2>
-            <button className="bg-black text-white border-1 cursor-pointer p-3 rounded-b-3xl">Try it out!</button>
+            <button className="bg-black text-white border-1 cursor-pointer p-3 rounded-b-3xl"  onClick={() => navigate(`/recipes/${recipe.id}`)}>Try it out!</button>
          
             {/* <p>{recipe.description}</p>
                 <p>{recipe.ingredients}</p> */}
