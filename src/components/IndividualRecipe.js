@@ -22,67 +22,102 @@ const IndividualRecipe = () => {
   }, [id]);
 
   if (!recipe) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen text-2xl text-amber-400">
+        Loading... Please Wait 😊
+      </div>
+    );
   }
 
   return (
-    <div className="bg-black text-white min-h-screen ">
+    <div className="bg-white text-black min-h-screen">
       <Navbar />
-      <div className="w-[1000px] mx-auto flex flex-col justify-center">
-        <div className="flex items-center justify-center text-3xl pt-30 pb-10 text-amber-400">
-          Dive in to taste the magic of this recipe!
-        </div>
-        <div className="flex flex-row text-white items-center justify-center gap-10 pt-4">
-          <div className="flex flex-col">
-            <h1 className="text-xl text-gray-300 font-semibold">Let's Cook</h1>
-            <span className="text-5xl font-bold">{recipe.name}</span>
+
+      {/* Hero Section */}
+      <div className="flex items-center justify-start p-8 md:p-16 h-[200px] md:h-[355px] bg-[url('/images/image3.png')] bg-cover bg-center bg-no-repeat">
+      <div className="inset-0 bg-white  bg-opacity-50"></div>
+          <h1 className="text-5xl font-bold text-black">{recipe.name}</h1>
+        
+      </div>
+
+      {/* Recipe Content */}
+      <div className="max-w-5xl mx-auto px-6 py-10">
+      
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          <img className="rounded-3xl w-[400px] h-[400px] shadow-lg" src={recipe.image} alt={recipe.name} />
+          <div className="space-y-4 text-lg">
+            <h2 className="text-3xl font-semibold text-black">Let's Cook</h2>
+            <p className="text-gray-700">
+              Explore the taste of {recipe.cuisine} cuisine with this {recipe.difficulty} level recipe.
+              Perfect for {recipe.servings} servings!
+            </p>
+            <div className="flex gap-4">
+              <span className="px-4 py-2 bg-amber-500  hover:bg-amber-600 transition text-white font-semibold rounded-lg">
+                Prep: {recipe.prepTimeMinutes} min
+              </span>
+              <span className="px-4 py-2 bg-amber-500  hover:bg-amber-600 transition text-white font-semibold rounded-lg">
+                Cook: {recipe.cookTimeMinutes} min
+              </span>
+            </div>
           </div>
-          <img
-            className="rounded-3xl w-[400px] h-[400px]"
-            src={recipe.image}
-            alt={recipe.name}
-          />
         </div>
-        <div>
-          <h2 className="flex items-center justify-center text-3xl pt-30 pb-5 text-amber-400">
-            Instructions:
-          </h2>
-          <ul className="p-6 justify-items-center">
-            {recipe.instructions.map((instruction, index) => (
-              <li key={index}>{instruction}</li>
+
+        {/* Ingredients Section */}
+        <div className="mt-10">
+          <h2 className="text-3xl font-semibold text-amber-500">Ingredients</h2>
+          <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 text-lg">
+            {recipe.ingredients.map((ingredient, index) => (
+              <li key={index} className="p-3 bg-gray-200 rounded-lg shadow-md">
+                {ingredient}
+              </li>
             ))}
           </ul>
         </div>
-        <div className="flex flex-row items-center justify-between pt-2 px-15">
-          <div>
-            <h2 className="text-3xl pl-5 pt-10 pb-5 text-amber-400">Ingredients Used:</h2>
-            <ul className="p-6">
-              {recipe.ingredients.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 items-center justify-items-center pt-14 gap-6">
-            {[
-              { label: "Cuisine", value: recipe.cuisine },
-              { label: "Servings", value: recipe.servings },
-              { label: "Prep Time", value: recipe.prepTimeMinutes },
-              { label: "Cook Time", value: recipe.cookTimeMinutes },
-              { label: "Difficulty", value: recipe.difficulty },
-              { label: "Rating", value: recipe.rating },
-            ].map((item, index) => (
-              <div key={index} className="flex flex-col w-[200px] border-2 p-3 items-center justify-center rounded-2xl">
-                <h1>{item.label}</h1>
-                <p>{item.value}</p>
-              </div>
+
+        {/* Instructions Section */}
+        <div className="mt-10">
+          <h2 className="text-3xl font-semibold text-amber-500">Instructions</h2>
+          <ul className="mt-4 space-y-3 text-lg">
+            {recipe.instructions.map((instruction, index) => (
+              <li key={index} className="p-3 bg-gray-200 rounded-lg shadow-md">
+                <span className="font-semibold text-amber-500">Step {index + 1}: </span>
+                {instruction}
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
+
+        {/* Recipe Info Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+          {[
+            { label: "Cuisine", value: recipe.cuisine },
+            { label: "Servings", value: recipe.servings },
+            { label: "Prep Time", value: `${recipe.prepTimeMinutes} min` },
+            { label: "Cook Time", value: `${recipe.cookTimeMinutes} min` },
+            { label: "Difficulty", value: recipe.difficulty },
+            { label: "Rating", value: recipe.rating },
+          ].map((item, index) => (
+            <div key={index} className="flex flex-col items-center p-4 bg-gray-200 rounded-lg shadow-md">
+              <h3 className="text-lg font-semibold text-amber-500">{item.label}</h3>
+              <p className="text-xl">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex justify-center gap-6 mt-10">
+          <button className="px-6 py-3 bg-amber-500 text-white font-semibold rounded-lg hover:bg-amber-600 transition">
+            Save to Favorites ❤️
+          </button>
+          <button className="px-6 py-3 border border-amber-500 text-amber-500 font-semibold rounded-lg hover:bg-amber-500 hover:text-white transition">
+            Print Recipe 🖨️
+          </button>
         </div>
       </div>
+
       <Footer />
     </div>
   );
-  
 };
 
 export default IndividualRecipe;
