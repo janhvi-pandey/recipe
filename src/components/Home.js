@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <div className="pb-10">
   <Navbar />
 </div>
