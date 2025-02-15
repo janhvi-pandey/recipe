@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Utensils, Users, Clock, Timer, TrendingUp, Star } from "lucide-react";
+
 
 const IndividualRecipe = () => {
   const { id } = useParams();
@@ -87,22 +89,34 @@ const IndividualRecipe = () => {
           </ul>
         </div>
 
-        {/* Recipe Info Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-          {[
-            { label: "Cuisine", value: recipe.cuisine },
-            { label: "Servings", value: recipe.servings },
-            { label: "Prep Time", value: `${recipe.prepTimeMinutes} min` },
-            { label: "Cook Time", value: `${recipe.cookTimeMinutes} min` },
-            { label: "Difficulty", value: recipe.difficulty },
-            { label: "Rating", value: recipe.rating },
-          ].map((item, index) => (
-            <div key={index} className="flex flex-col items-center p-4 bg-gray-200 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-amber-500">{item.label}</h3>
-              <p className="text-xl">{item.value}</p>
-            </div>
-          ))}
-        </div>
+        
+
+{/* Recipe Info Cards */}
+<div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+  {[
+    { label: "Cuisine", value: recipe.cuisine, icon: <Utensils size={28} /> },
+    { label: "Servings", value: recipe.servings, icon: <Users size={28} /> },
+    { label: "Prep Time", value: `${recipe.prepTimeMinutes} min`, icon: <Clock size={28} /> },
+    { label: "Cook Time", value: `${recipe.cookTimeMinutes} min`, icon: <Timer size={28} /> },
+    { label: "Difficulty", value: recipe.difficulty, icon: <TrendingUp size={28} /> },
+    { label: "Rating", value: recipe.rating, icon: <Star size={28} /> },
+  ].map((item, index) => (
+    <div key={index} className="flex items-center p-4 bg-gray-200 rounded-lg shadow-md">
+      {/* Icon Section */}
+      <div className="w-12 h-12 flex items-center justify-center bg-amber-500 text-white rounded-lg">
+        {item.icon}
+      </div>
+      
+      {/* Text Section */}
+      <div className="ml-4">
+        <h3 className="text-lg font-semibold text-black">{item.label}</h3>
+        <p className="text-xl">{item.value}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+
 
         {/* Action Buttons */}
         <div className="flex justify-center gap-6 mt-10">
