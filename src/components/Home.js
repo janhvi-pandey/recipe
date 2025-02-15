@@ -52,15 +52,14 @@ const Home = () => {
   <h2 className="text-gray-600 font-semibold text-lg md:text-xl pb-5 text-center">
     We are home to a variety of recipes worldwide for you to learn.
   </h2>
-  <div className="flex flex-col-reverse md:flex-row gap-4 pt-10 items-center">
-    <p className="text-[16px] md:text-[17px] w-full md:w-1/2">
+  <div className="flex flex-col md:flex-row gap-4 pt-10 items-center">
+    <p className="text-[16px] md:text-[17px] w-full md:w-[600px]">
       Lorem ipsum, dolor sit
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident similique reprehenderit omnis, suscipit eos facilis officiis id aliquid quasi blanditiis porro quae, laudantium nulla harum animi iure cum ducimus consequuntur.
-      Iure modi libero maiores nostrum. Ipsum dolor porro quasi illum reprehenderit magnam quibusdam voluptatum cum pariatur voluptatem, beatae nobis aut, nihil, eaque necessitatibus. Corporis quas laboriosam velit quod voluptatibus vel.
-      Iusto minima optio, delectus vitae nemo quasi. Tempora deserunt antium ea, rem, sit atque repellendus. Soluta amet deserunt dicta facilis ullam aliquid dolorum tempore! Culpa, saepe ducimus?
+      Iure modi libero maiores nostrum. Ipsu deserunt antium ea, rem, sit atque repellendus. Soluta amet deserunt dicta facilis ullam aliquid dolorum tempore! Culpa, saepe ducimus?
       Rem quisquam quo nobis recusandae assumenda eum. Culpa rem officiis praesentium repudiandae quod, neque laboriosam voluptatibus nesciunt pariatur ducimus sunt fugiat porro minima incidunt obcaecati ut quo necessitatibus facere. Nesciunt? amet consectetur adipisicing elit. Est, impedit nam exercitationem voluptatibus voluptas eius quaerat architecto necessitatibus et quibusdam...
     </p>
-    <div className="w-full md:w-1/2">
+    <div className="w-full md:w-[450px] ">
       <img src="/images/image2.png" alt="Cooking" className="w-full rounded-2xl" />
     </div>
   </div>
