@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
+import { IoIosStar } from "react-icons/io";
 import Loader from "./Loader"; 
 
 const Recipes = () => {
@@ -41,9 +42,9 @@ const Recipes = () => {
           {recipes.map((recipe) => (
             <div key={recipe.id} className="flex flex-col border rounded-3xl w-[330px] mb-5 shadow-lg">
               <img className="rounded-t-3xl w-[330px] h-[270px] object-cover" src={recipe.image} alt={recipe.name} />
-              <h2 className="flex items-center p-2 justify-center font-semibold text-lg">{recipe.name}</h2>
+              <h2 className="flex items-center p-2 justify-between font-semibold text-lg">{recipe.name}<spanc className="flex flex-row items-center text-[15px] gap-1 text-orange-400"><IoIosStar/>{recipe.rating}</spanc></h2>
               <button
-                className="bg-black text-white border-1 cursor-pointer p-3 rounded-b-3xl"
+                className="hover:bg-black bg-gray-900 hover:text-[17px] transition font-semibold text-white border-1 cursor-pointer p-3 rounded-b-3xl"
                 onClick={() => navigate(`/recipes/${recipe.id}`)}
               >
                 Try it out!

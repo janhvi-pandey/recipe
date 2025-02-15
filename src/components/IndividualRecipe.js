@@ -51,10 +51,10 @@ const IndividualRecipe = () => {
                   Perfect for {recipe.servings} servings!
                 </p>
                 <div className="flex gap-4">
-                  <span className="px-4 py-2 bg-amber-700 hover:bg-amber-600 transition text-white font-semibold rounded-lg">
+                  <span className="px-4 py-2 bg-black hover:bg-black transition text-white font-semibold rounded-lg">
                     Prep: {recipe.prepTimeMinutes} min
                   </span>
-                  <span className="px-4 py-2 bg-amber-500 hover:bg-amber-600 transition text-white font-semibold rounded-lg">
+                  <span className="px-4 py-2 bg-amber-600 hover:bg-amber-900 transition text-white font-semibold rounded-lg">
                     Cook: {recipe.cookTimeMinutes} min
                   </span>
                 </div>
