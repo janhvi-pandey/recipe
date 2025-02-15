@@ -10,29 +10,17 @@ const Navbar = () => {
       <div className="text-xl  font-bold">
         Recipe<span className="text-amber-400">Hub</span>
       </div>
-      <ul className="flex flex-row list-none text-l gap-6 ">
+      <ul className="flex flex-row list-none text-l md:mr-5 gap-6 ">
         <Link className="" to="/">
           Home
         </Link>
         <Link className="" to="/recipe">
           Recipe
         </Link>
-        <Link className="" to="/">
-          About
-        </Link>
-        <Link className="" to="/">
-          Contact
-        </Link>
+       
       </ul>
 
-      <div className="flex flex-row gap-4 text-2xl">
-        <span>
-          <MdOutlineSearch />
-        </span>
-        <span>
-          <FaUserCircle />
-        </span>
-      </div>
+     
     </div>
   );
 };
