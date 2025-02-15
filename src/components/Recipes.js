@@ -28,9 +28,9 @@ const Recipes = () => {
   return (
     <>
       <Navbar />
-      <h1 className="flex items-center justify-center text-3xl font-semibold text-amber-950 pt-10 pb-7">
+      <h1 className="flex flex-col md:flex-row items-center justify-center text-3xl font-semibold text-amber-950 pt-30 pb-7">
         What to cook?
-        <span className="text-amber-400 ml-2">Choose your favourite Recipes</span>
+        <span className="text-amber-400 m-3 text-center">Choose your favourite Recipes</span>
       </h1>
 
      
@@ -40,7 +40,7 @@ const Recipes = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center justify-items-center m-8 gap-8">
           {recipes.map((recipe) => (
             <div key={recipe.id} className="flex flex-col border rounded-3xl w-[330px] mb-5 shadow-lg">
-              <img className="rounded-t-3xl w-[330px] h-[200px] object-cover" src={recipe.image} alt={recipe.name} />
+              <img className="rounded-t-3xl w-[330px] h-[270px] object-cover" src={recipe.image} alt={recipe.name} />
               <h2 className="flex items-center p-2 justify-center font-semibold text-lg">{recipe.name}</h2>
               <button
                 className="bg-black text-white border-1 cursor-pointer p-3 rounded-b-3xl"
